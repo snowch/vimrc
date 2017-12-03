@@ -1,29 +1,14 @@
-# .vimrc and .tmux.conf
+# nvim config
 
 ```
-git clone git@github.com:snowch/vimrc.git ~/.vim
 
-[[ -f ~/.vimrc ]] && mv ~/.vimrc ~/.vimrc_$(date +%s)
-ln -s ~/.vim/.vimrc ~/.vimrc
+CONFIG_DIR=~/.config/nvim/
 
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone git@github.com:snowch/vimrc.git $CONFIG_DIR
 
-mkdir ~/.vim/colors
-curl -s https://raw.githubusercontent.com/endel/vim-github-colorscheme/master/colors/github.vim > ~/.vim/colors/github.vim
+[[ -f $CONFIG_DIR/init.vim ]] && mv $CONFIG_DIR/init.vim $CONFIG_DIR/init.vim_$(date +%s)
+
+git clone https://github.com/VundleVim/Vundle.vim.git $CONFIG_DIR/bundle/Vundle.vim
+
 vim +PluginInstall +qall
-
-vim 'https://conque.googlecode.com/files/conque_2.3.vmb' -c ':so % | q'
-
-# fix colorsupport
-curl -s http://www.vim.org/scripts/download_script.php?src_id=20938 > ~/.vim/plugin/colorsupport.vim
-
-[[ -f ~/.tmux.conf ]] && mv ~/.tmux.conf ~/.tmux.conf_$(date +%s)
-ln -s ~/.vim/.tmux.conf ~/.tmux.conf
-
-curl -s https://raw.githubusercontent.com/snowch/vimrc/master/tmux_save_session.sh > ~/.tmux_save_session.sh
-chmod +x ~/.tmux_save_session.sh
-```
-
-```
-# For jshint see: http://stackoverflow.com/a/5893447/1033422
 ```
